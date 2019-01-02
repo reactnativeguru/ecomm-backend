@@ -1,12 +1,38 @@
-type User {
-    id: ID!
-    name: String!
+ scalar DateTime
+
+type Item {
+  id: ID!
+  title: String!
+  description: String!
+  image: String
+  largeImage: String
+  price: Int!
+#   createdAt: DateTime!
+#   updatedAt: DateTime!
 }
 
-type Mutation {
-    foo: String
-}
+type Mutation { 
+    createItem(title: String, description: String, price: Int, image: String, largeImage: String): Item!
+} 
 
 type Query {
-    foo: String
+    items: [Item]!
 }
+
+# type User {
+#     id: ID!
+#     name: String!
+# }
+
+# type Recruiter {
+#     name: String
+# }
+
+# type Query {
+#     recruiters: [Recruiter]!
+# }
+
+# type Mutation {
+#     createRecruiter(name: String): Recruiter
+# }
+
