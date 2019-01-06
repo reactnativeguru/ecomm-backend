@@ -8,6 +8,20 @@ const Mutations = {
     }, info) // need to pass info
     
     return item;
+  },
+
+ async  deleteItem(parent, args, ctx, info){
+      const where = {id: args.id};
+      // find item
+      const item = await ctx.db.query.item({where}, `{
+          id
+       title}`
+       )
+      // check delete permissions
+      // todo
+      // delete
+      return ctx.db.mutation.deleteItem({where}, info)
+          
   }
 
   // createRecruiter(parent, args, ctx, info){
